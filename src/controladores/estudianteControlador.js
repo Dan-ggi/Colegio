@@ -112,14 +112,14 @@ const listarEstudiante = async (req, res) => {
 const actualizarEstudiante = async (req, res) => {
   try {
     const { documento } = req.params;
-    const { email, nombre, edad } = req.body;
+    const { email, nombre, celular, apellido } = req.body;
 
     const estudiante = await Estudiante.findByPk(documento);
     if (!estudiante) {
       return res.status(404).json({ mensaje: 'Estudiante no encontrado', resultado: null });
     }
 
-    await Estudiante.update({ email, nombre, edad }, { where: { documento: documento } });
+    await Estudiante.update({ email, nombre, celular, apellido }, { where: { documento: documento } });
     const estudianteActualizado = await Estudiante.findByPk(documento);
 
     res.status(200).json({ mensaje: 'Estudiante actualizado', resultado: estudianteActualizado });

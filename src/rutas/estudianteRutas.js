@@ -1,5 +1,5 @@
 const express = require('express');
-const enrutador = express.Router();
+const  enrutador = express.Router();
 const estudianteControlador = require('../controladores/estudianteControlador');
 
 enrutador.post('/registrar', estudianteControlador.registrarEstudiante);

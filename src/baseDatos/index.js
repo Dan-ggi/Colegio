@@ -7,6 +7,8 @@ const defineMateria = require('../modelos/materias');
 const defineProfesor = require('../modelos/profesor');
 const defineInscripcionMaterias = require('../modelos/inscripcionMateria');
 const defineMateriaProfesor = require('../modelos/materiaProfesor');
+const defineSecretaria = require('../modelos/secretaria');
+
 
 const sequelize = new Sequelize(
   process.env.DB_NAME,
@@ -23,6 +25,7 @@ const Materia = defineMateria(sequelize, DataTypes);
 const Profesor = defineProfesor(sequelize, DataTypes);
 const InscripcionMateria = defineInscripcionMaterias(sequelize, DataTypes);
 const MateriaProfesor = defineMateriaProfesor(sequelize, DataTypes);
+const Secretaria = defineSecretaria(sequelize, DataTypes);
 
 sequelize.authenticate()
   .then(() => console.log('Conectado a la base de datos.'))
@@ -38,5 +41,6 @@ module.exports = {
     Profesor,
     InscripcionMateria,
     MateriaProfesor,
+    Secretaria, 
     sequelize
 };
